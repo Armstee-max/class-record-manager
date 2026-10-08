@@ -62,11 +62,15 @@ def search_students():
 
 def update_score():
     student_id = input("Enter Student ID: ")
+    found = False
     for student in students:
         if student["student id"] == student_id:
+            found = True
             new_score = int(input("Enter new score: "))
             student["score"] = new_score
             print("Score Updated")
+    if not found:
+        print("Match not found")
     with open("students.json", "w") as file:
         json.dump(students, file)
     
