@@ -73,7 +73,14 @@ def update_score():
         print("Match not found")
     with open("students.json", "w") as file:
         json.dump(students, file)
-    
+
+def remove_student():
+    student_id = input("Enter Student ID: ")
+    for student in students:
+        if student["student id"] == student_id:
+            del student
+
+
 while True:
     print("CLASSROOM RECORD MANAGER")
     print("1. Add Student")
