@@ -1,6 +1,12 @@
 import json, csv
 
-students = []
+
+def load_students():
+    with open("students.json", "r") as file:
+        load = json.load(file)
+        return load
+
+students = load_students()
 
 
 def add_student():
@@ -18,13 +24,16 @@ def add_student():
     for student in students:
         if student["student id"] == student_id:
             print("Student ID exists already")
+            return False
     return one_student
 
 def save_students():
     new_students = add_student()
-    students.append(new_students)
+    if new_students:
+        students.append(new_students)
     with open("students.json", "w") as file:
         json.dump(students, file)
+
 
 while True:
     print("CLASSROOM RECORD MANAGER")
@@ -39,7 +48,7 @@ while True:
 
     decision = input("Choose an option: ")
     if decision == "1":
-        add_student()
+        save_students()
     elif decision == "2":
         pass
     elif decision == "3":
