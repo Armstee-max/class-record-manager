@@ -92,6 +92,12 @@ def class_stats():
     total_students = len(students)
     print(f"Total Students: {total_students}")
 
+    total_score = 0
+    for student in students:
+        total_score += student["score"]
+        average = total_score / total_students
+    print(f"Average Score: {average}")
+
 
 
 
