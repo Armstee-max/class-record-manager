@@ -110,6 +110,17 @@ def class_stats():
         if student["score"] == high:
             print(f"Highest Scoring Student: {student["name"]}")
 
+def export_csv():
+    with open("students.csv", "w") as file:
+        writer = csv.writer(file)
+        writer.writerow(["Student ID", "Name", "Course", "Score"])
+        for student in students:
+            writer.writerow([
+                student["student id"],
+                student["name"],
+                student["course"],
+                student["score"]
+            ])
 
 
 while True:
@@ -137,6 +148,6 @@ while True:
     elif decision == "6":
         class_stats()
     elif decision == "7":
-        pass
+        export_csv()
     elif decision == "8":
         break
