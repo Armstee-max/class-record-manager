@@ -1,18 +1,6 @@
-import json, csv
+# import json, csv
 
-
-# ===== CLASSROOM RECORD MANAGER =====
-
-# 1. Add Student
-# 2. View All Students
-# 3. Search Student
-# 4. Update Student Score
-# 5. Remove Student
-# 6. Show Class Statistics
-# 7. Export Records to CSV
-# 8. Exit
-
-# Choose an option:
+students = []
 
 while True:
     print("CLASSROOM RECORD MANAGER")
@@ -42,3 +30,27 @@ while True:
         pass
     elif decision == "8":
         break
+
+
+# Student ID
+# Name
+# Course
+# Score
+
+def add_student():
+    student_id = input("Enter Student ID: ")
+    name = input("Enter Student Name: ")
+    course = input("Enter Student Course: ")
+    score = int(input("Enter Student Score: "))
+    one_student = {
+        "student id": student_id,
+        "name": name,
+        "course": course,
+        "score": score
+    }
+
+    for student in students:
+        if one_student["student id"]:
+            print("Student ID exists already")
+    return one_student
+
