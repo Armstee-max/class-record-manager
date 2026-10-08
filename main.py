@@ -87,6 +87,13 @@ def remove_student():
     with open("students.json", "w") as file:
         json.dump(students, file)
 
+def class_stats():
+    print("CLASS STATISTICS")
+    total_students = len(students)
+    print(f"Total Students: {total_students}")
+
+
+
 
 while True:
     print("CLASSROOM RECORD MANAGER")
@@ -111,7 +118,7 @@ while True:
     elif decision == "5":
         remove_student()
     elif decision == "6":
-        pass
+        class_stats()
     elif decision == "7":
         pass
     elif decision == "8":
