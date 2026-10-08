@@ -34,6 +34,35 @@ def save_students():
     with open("students.json", "w") as file:
         json.dump(students, file)
 
+def view_students():
+    students = load_students()
+    if not students:
+        print("No Students Available")
+        return
+    print("Student Records:")
+    for student in students:
+        print(f"Student ID: {student['student id']}")
+        print(f"Name: {student['name']}")
+        print(f"Course: {student['course']}")
+        print(f"Score: {student['score']}")
+
+def search_students():
+    student_id = input("Enter Student ID: ")
+    found = False
+    for student in students:
+        if student["student id"] == student_id:
+            found = True
+            print("Match Found")
+            print(f"Student ID: {student['student id']}")
+            print(f"Name: {student['name']}")
+            print(f"Course: {student['course']}")
+            print(f"Score: {student['score']}")
+    if not found:
+        print("Student doesn\'t exist")
+
+
+
+
 
 while True:
     print("CLASSROOM RECORD MANAGER")
@@ -50,9 +79,9 @@ while True:
     if decision == "1":
         save_students()
     elif decision == "2":
-        pass
+        view_students()
     elif decision == "3":
-        pass
+        search_students()
     elif decision == "4":
         pass
     elif decision == "5":
