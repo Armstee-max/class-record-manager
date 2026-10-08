@@ -58,10 +58,7 @@ def search_students():
             print(f"Course: {student['course']}")
             print(f"Score: {student['score']}")
     if not found:
-        print("Student doesn\'t exist")
-
-
-
+        print("Match not found")
 
 
 while True:
