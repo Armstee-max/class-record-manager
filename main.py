@@ -98,6 +98,17 @@ def class_stats():
     average = total_score / total_students
     print(f"Average Score: {average}")
 
+    scores = []
+    for student in students:
+        scores.append(student["score"])
+    high = max(scores)
+    low = min(scores)
+    print(f"Highest Score: {high}")
+    print(f"Lowest Score: {low}")
+
+    for student in students:
+        if student["score"] == high:
+            print(f"Highest Scoring Student: {student["name"]}")
 
 
 
