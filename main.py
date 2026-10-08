@@ -76,9 +76,16 @@ def update_score():
 
 def remove_student():
     student_id = input("Enter Student ID: ")
+    found = False
     for student in students:
         if student["student id"] == student_id:
-            del student
+            found = True
+            students.remove(student)
+            print("Student Removed")
+    if not found:
+        print("Match not found")
+    with open("students.json", "w") as file:
+        json.dump(students, file)
 
 
 while True:
@@ -102,7 +109,7 @@ while True:
     elif decision == "4":
         update_score()
     elif decision == "5":
-        pass
+        remove_student()
     elif decision == "6":
         pass
     elif decision == "7":
