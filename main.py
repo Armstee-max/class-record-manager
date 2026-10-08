@@ -112,10 +112,10 @@ def class_stats():
 
 def export_csv():
     with open("students.csv", "w") as file:
-        writer = csv.writer(file)
-        writer.writerow(["Student ID", "Name", "Course", "Score"])
+        content = csv.writer(file)
+        content.writerow(["Student ID", "Name", "Course", "Score"])
         for student in students:
-            writer.writerow([
+            content.writerow([
                 student["student id"],
                 student["name"],
                 student["course"],
